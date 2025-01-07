@@ -72,7 +72,7 @@ class PrinterController extends Controller
     {
         $validated = $request->validated();
         DB::table('printers')
-            ->where('id', '=', $id)
+            ->where('printers.id', '=', $id)
             ->update($validated);
         return redirect()->route('printers.show', $id)->with('success', 'printer updated successfully');
     }

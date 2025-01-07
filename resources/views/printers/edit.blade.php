@@ -13,44 +13,31 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="brand" class="form-label">brand</label>
-            <input type="text" class="form-control @error('brand') is-invalid @enderror" id="brand"
-                name="brand" value="{{ old('brand') ?? $printer->brand }}">
-            @error('model')
+            <label for="manufacturer" class="form-label">manufacturer</label>
+            <input type="text" class="form-control @error('manufacturer') is-invalid @enderror" id="manufacturer"
+                name="manufacturer" value="{{ old('manufacturer') ?? $printer->manufacturer }}">
+            @error('manufacturer')
                 <div class="invalid-feedback">{{ $message }}
                 </div>
             @enderror
         </div>
         <div class="mb-3">
-            <label for="features" class="form-label">Published year</label>
-            <input type="text" class="form-control @error('features') is-invalid @enderror" id="features"
-                name="features" value="{{ old('features') ?? $printer->features }}">
-            @error('features')
+            <label for="max_print_size" class="form-label">max_print_size</label>
+            <input type="text" class="form-control @error('max_print_size') is-invalid @enderror" id="max_print_size"
+                name="max_print_size" value="{{ old('max_print_size') ?? $printer->max_print_size }}">
+            @error('max_print_size')
                 <div class="invalid-feedback">{{ $message }}
                 </div>
             @enderror
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">Price</label>
-            <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
-                name="price" value="{{ old('price') ?? $printer->price }}">
-            @error('price')
+            <label for="print_resolution" class="form-label">print_resolution</label>
+            <input type="text" class="form-control @error('print_resolution') is-invalid @enderror"
+                id="print_resolution" name="print_resolution"
+                value="{{ old('print_resolution') ?? $printer->print_resolution }}">
+            @error('print_resolution')
                 <div class="invalid-feedback">{{ $message }}
                 </div>
-            @enderror
-        </div>
-        <div class="mb-3">
-            <label for="technology" class="form-label">Category</label>
-            <select class="form-select @error('technology') is-invalid @enderror" id="technology" name="technology">
-                @foreach ($categories as $category)
-                    <option value="{{ $category->id }}"
-                        @if (old('technology') && $category->id == old('technology')) selected 
-                        @elseif (!old('technology') && $category->id == $printer->technology) selected @endif>
-                        {{ $category->name }}</option>
-                @endforeach
-            </select>
-            @error('technology')
-                <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

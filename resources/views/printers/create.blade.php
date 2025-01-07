@@ -4,50 +4,38 @@
     <form method="POST" action="{{ route('printers.store') }}">
         @csrf
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                value="{{ old('title') }}">
-            @error('title')
+            <label for="model" class="form-label">model</label>
+            <input type="text" class="form-control @error('model') is-invalid @enderror" id="model" name="model"
+                value="{{ old('model') }}">
+            @error('model')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
         <div class="mb-3">
-            <label for="author" class="form-label">Author</label>
-            <input type="text" class="form-control @error('author') is-invalid @enderror" id="author"
-                name="author" value="{{ old('author') }}">
-            @error('title')
+            <label for="manufacturer" class="form-label">manufacturer</label>
+            <input type="text" class="form-control @error('manufacturer') is-invalid @enderror" id="manufacturer"
+                name="manufacturer" value="{{ old('manufacturer') }}">
+            @error('model')
                 <div class="invalid-feedback">{{ $message }}
                 </div>
             @enderror
         </div>
         <div class="mb-3">
-            <label for="published_year" class="form-label">Published year</label>
-            <input type="text" class="form-control @error('published_year') is-invalid @enderror" id="published_year"
-                name="published_year" value="{{ old('published_year') }}">
-            @error('published_year')
+            <label for="max_print_size" class="form-label">Max print size</label>
+            <input type="text" class="form-control @error('max_print_size') is-invalid @enderror" id="max_print_size"
+                name="max_print_size" value="{{ old('max_print_size') }}">
+            @error('max_print_size')
                 <div class="invalid-feedback">{{ $message }}
                 </div>
             @enderror
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">Price</label>
-            <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
-                name="price" value="{{ old('price') }}">
-            @error('price')
+            <label for="print_resolution" class="form-label">print_resolution</label>
+            <input type="text" class="form-control @error('print_resolution') is-invalid @enderror"
+                id="print_resolution" name="print_resolution" value="{{ old('print_resolution') }}">
+            @error('print_resolution')
                 <div class="invalid-feedback">{{ $message }}
                 </div>
-            @enderror
-        </div>
-        <div class="mb-3">
-            <label for="category_id" class="form-label">Category</label>
-            <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id">
-                @foreach ($categories as $category)
-                    <option value="{{ $category->id }}" @if ($category->id == old('category_id')) selected @endif>
-                        {{ $category->name }}</option>
-                @endforeach
-            </select>
-            @error('category_id')
-                <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
