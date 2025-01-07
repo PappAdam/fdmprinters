@@ -38,21 +38,6 @@ class PrinterController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $printer = DB::table('printers')
-            ->where('printers.id', '=', $id)
-            ->first();
-
-        if (!$printer) {
-            abort(404);
-        }
-
-        return view('printers.show', ['printer' => $printer]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -74,7 +59,7 @@ class PrinterController extends Controller
         DB::table('printers')
             ->where('printers.id', '=', $id)
             ->update($validated);
-        return redirect()->route('printers.show', $id)->with('success', 'printer updated successfully');
+        return redirect()->route('printers.index')->with('success', 'printer updated successfully');
     }
 
     /**

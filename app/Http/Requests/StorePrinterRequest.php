@@ -22,18 +22,10 @@ class StorePrinterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'brand' => 'required|string|max:255',
+            'manufacturer' => 'required|string|max:255',
             'model' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            'build_volume_width' => 'required|integer',
-            'build_volume_depth' => 'required|integer',
-            'build_volume_height' => 'required|integer',
-            'technology' => 'required|string|max:255',
-            'features' => 'required|string',
-            'filament_support' => 'required|string',
-            'connectivity' => 'required|string',
-            'layer_resolution' => 'required|string',
-            'nozzle_diameter' => 'required|string',
+            'max_print_size' => 'required|string|max:255',
+            'print_resolution' => 'required|string|max:255',
         ];
     }
 }
